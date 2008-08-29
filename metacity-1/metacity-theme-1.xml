@@ -149,6 +149,7 @@
 </draw_ops>
 
 
+<!-- This is a transparent highlight that goes in the top half of the title bar -->
 <draw_ops name="title_highlight">
 	<tint color="#fefefe" alpha="0.2" x="1" y="1" width="width-2" height="top_height/2"/>
 </draw_ops>
