@@ -12,6 +12,7 @@
 <!--  DEFINE THE FRAME GEOMETRIES HERE -->
 <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 
+<!--  This is the normal geometry - rounded corners at the top, but not bottom. It also sets out the buton size and spacing and border width -->
 <frame_geometry name="normal" rounded_top_left="true" rounded_top_right="true" rounded_bottom_left="false" rounded_bottom_right="false">
   <distance name="left_width" value="2"/>
   <distance name="right_width" value="2"/>
@@ -25,26 +26,28 @@
   <border name="title_border" left="0" right="0" top="4" bottom="4"/>
 </frame_geometry>
 
+<!--  not sure what the point of this is! -->
 <frame_geometry name="shaded" parent="normal" />
 
+<!--  This sets up the geometry for maximised windows - no rounded corners and no borders -->
 <frame_geometry name="maximized" parent="normal" rounded_top_left="false" rounded_top_right="false" rounded_bottom_left="false" rounded_bottom_right="false">
   <distance name="left_width" value="0"/>
   <distance name="right_width" value="0"/>
   <distance name="bottom_height" value="0"/>
   <distance name="left_titlebar_edge" value="2"/>
   <distance name="right_titlebar_edge" value="2"/>
-
 </frame_geometry>
 
+<!--  not sure what a utility window is - need to investigate -->
 <frame_geometry name="utility" title_scale="small" rounded_top_left="false" rounded_top_right="false" rounded_bottom_left="false" rounded_bottom_right="false">
-  <distance name="left_width" value="5"/>
-  <distance name="right_width" value="5"/>
-  <distance name="bottom_height" value="5"/>
-  <distance name="left_titlebar_edge" value="0"/>
-  <distance name="right_titlebar_edge" value="2"/>
-  <distance name="title_vertical_pad" value="4"/>
-  <border name="title_border" left="0" right="2" top="1" bottom="2"/>
-  <border name="button_border" left="0" right="0" top="0" bottom="0"/>
+  <distance name="left_width" value="2"/>
+  <distance name="right_width" value="2"/>
+  <distance name="bottom_height" value="4"/>
+  <distance name="left_titlebar_edge" value="4"/>
+  <distance name="right_titlebar_edge" value="4"/>
+  <distance name="title_vertical_pad" value="0"/>
+  <border name="title_border" left="0" right="0" top="4" bottom="4"/>
+  <border name="button_border" left="2" right="1" top="2" bottom="0"/>
   <aspect_ratio name="button" value="0.8"/>
 </frame_geometry>
 
@@ -58,9 +61,8 @@
   <distance name="button_height" value="0"/>
   <border name="button_border" left="0" right="0" top="0" bottom="0"/>
   <distance name="title_vertical_pad" value="0"/>
-  <border name="title_border" left="0" right="0" top="0" bottom="0"/>
+  <border name="title_border" left="0" right="0" top="4" bottom="4"/>
 </frame_geometry>
-
 
 
 <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
@@ -68,7 +70,7 @@
 <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 
 <!-- First we define how to draw buttons For each button we specify
-       draw_ops for the normal, prelight(hover), and pressed states.-->
+       draw_ops for the normal, hover and pressed states.-->
 
 <!-- The Menu Button -->
 <draw_ops name="menu_button">
@@ -171,27 +173,29 @@
 	<tint color="#fefefe" alpha="0.25" x="1" y="1" width="width-2" height="top_height/2"/>
 </draw_ops>
 
-
 <draw_ops name="image_highlights">
+<!-- This is an image that creates a curved 'notch' in the background of the titlebar -->
 	<image filename="notch.png" x="0" y="top_height/3" width="width" height="top_height/1.5" alpha="0.2"/>
+<!-- This is an image that puts a 'cloud' effect behind the title text to highlight it -->
 	<image filename="cloud.png" x="(width-title_width)/2-width/20" y="top_height/4" width="(title_width+width/20)*(title_width/title_width)" height="top_height/2" alpha="0.75" colorize="#ff0000"/>
 </draw_ops>
 
+<!-- These images are the same as above, but a little more transparent for unfocused windows -->
 <draw_ops name="image_highlights_unfocused">
 	<image filename="notch.png" x="0" y="top_height/3" width="width" height="top_height/1.5" alpha="0.2"/>
 	<image filename="cloud.png" x="(width-title_width)/2-width/20" y="top_height/4" width="(title_width+width/20)*(title_width/title_width)" height="top_height/2" alpha="0.5" colorize="#ff0000"/>
 </draw_ops>
 
-
+<!-- This is a basic way of creating rounded borders and highlights in the corners -->
 <draw_ops name="corner_borders">
 	<!-- top left border-->
 	<line color="#abdeed" x1="1" y1="3" x2="1" y2="4"/>
  	<line color="#abdeed" x1="2" y1="2" x2="2" y2="2"/>
-	<line color="#abdeed" x1="3" y1="1" x2="5" y2="0"/>
+	<line color="#abdeed" x1="3" y1="1" x2="4" y2="1"/>
 	<!-- top left highlight-->
 	<line color="#d4f2fb" x1="2" y1="4" x2="2" y2="5"/>
  	<line color="#d4f2fb" x1="3" y1="3" x2="3" y2="3"/>
-	<line color="#d4f2fb" x1="4" y1="2" x2="6" y2="1"/>
+	<line color="#d4f2fb" x1="4" y1="2" x2="5" y2="2"/>
 	<!-- top right border-->
 	<line color="#abdeed" x1="width-2" y1="3" x2="width-2" y2="4"/>
 	<line color="#abdeed" x1="width-3" y1="2" x2="width-3" y2="2"/>
@@ -202,11 +206,12 @@
 	<line color="#d4f2fb" x1="width-5" y1="2" x2="width-6" y2="2"/>
 </draw_ops>
 
+<!-- unfocused windows don't have the highlights -->
 <draw_ops name="corner_borders_unfocused">
 	<!-- top left border-->
 	<line color="#d1ecf4" x1="1" y1="3" x2="1" y2="4"/>
  	<line color="#d1ecf4" x1="2" y1="2" x2="2" y2="2"/>
-	<line color="#d1ecf4" x1="3" y1="1" x2="5" y2="0"/>
+	<line color="#d1ecf4" x1="3" y1="1" x2="4" y2="1"/>
 	<!-- top right border-->
 	<line color="#d1ecf4" x1="width-2" y1="3" x2="width-2" y2="4"/>
 	<line color="#d1ecf4" x1="width-3" y1="2" x2="width-3" y2="2"/>
@@ -216,62 +221,56 @@
 
 <!-- This draws the background for the windows. -->
 <draw_ops name="background">
-    <!-- This is the content border -->
-        <rectangle color="#E8F4FF" x="0" y="0" width="width" height="height" filled="true"/>
-          <gradient type="vertical" x="0" y="0" width="width" height="top_height">
-        <color value="#cde5fb"/>
-	<color value="#fefefe"/>
-    </gradient>
-    <!-- This makes a border around the whole window-->
-    <rectangle color="#abdeed" x="0" y="0" width="width-1" height="height-1" filled="false"/> 
-
-    <!-- top horizontal line separating content -->
-   <line color="#87cade" x1="1" y1="24" x2="width-1" y2="24"/>
-       
+<!-- This is the whole background -->
+  <rectangle color="#E8F4FF" x="0" y="0" width="width" height="height" filled="true"/>
+<!-- This draws a gradient background on the titlebar -->
+  <gradient type="vertical" x="0" y="0" width="width" height="top_height">
+    <color value="#cde5fb"/>
+	  <color value="#fefefe"/>
+  </gradient>
+<!-- This makes a border around the whole window-->
+  <rectangle color="#abdeed" x="0" y="0" width="width-1" height="height-1" filled="false"/> 
+<!-- This draws a line separating titlebar and content -->
+  <line color="#87cade" x1="1" y1="24" x2="width-1" y2="24"/>
 </draw_ops>
 
+<!-- Similar to above, but with different colours for unfocused windows -->
 <draw_ops name="background_unfocused">
-    <!-- This is the content border -->
-        <rectangle color="#E8F4FF" x="0" y="0" width="width" height="height" filled="true"/>
-          <gradient type="vertical" x="0" y="0" width="width" height="top_height">
-        <color value="#cde5fb"/>
-	<color value="#fefefe"/>
-    </gradient>
-    <!-- This makes a border around the whole window-->
-    <rectangle color="#d1ecf4" x="0" y="0" width="width-1" height="height-1" filled="false"/>   
-    <!-- top horizontal line separating content -->
-   <line color="#ade3f1" x1="1" y1="24" x2="width-1" y2="24"/>
-       
+<!-- This is the content border -->
+  <rectangle color="#E8F4FF" x="0" y="0" width="width" height="height" filled="true"/>
+  <gradient type="vertical" x="0" y="0" width="width" height="top_height">
+    <color value="#cde5fb"/>
+	  <color value="#fefefe"/>
+  </gradient>
+<!-- This makes a border around the whole window-->
+  <rectangle color="#d1ecf4" x="0" y="0" width="width-1" height="height-1" filled="false"/>   
+<!-- This draws a line separating titlebar and content -->
+  <line color="#ade3f1" x1="1" y1="24" x2="width-1" y2="24"/>      
 </draw_ops>
 
-<draw_ops name="curved-background">
-    <include name="background"/>
-    <include name="corner_borders"/>
+<!-- The next two draw ops just group a lot of the previous operations together -->
+<draw_ops name="full_background">
+  <include name="background"/>
+  <include name="corner_borders"/>
 </draw_ops>
 
-<draw_ops name="curved-background_unfocused">
-    <include name="background_unfocused"/>
-    <include name="corner_borders_unfocused"/>
+<draw_ops name="full_background_unfocused">
+  <include name="background_unfocused"/>
+  <include name="corner_borders_unfocused"/>
 </draw_ops>
-
-
 
 <!-- Now we set up draw_ops for drawing the title text in different window types -->
-
-
 <draw_ops name="title_text_focused">
   <clip x="0" y="0" width="width" height="height"/>
   <title color="#1F4E86"
          x="(width - title_width) / 2" y="(height - title_height) / 2"/> 
 </draw_ops>
 
-
 <draw_ops name="title_text">
   <clip x="0" y="0" width="width" height="height"/>
   <title color="#77bccb"
          x="(width - title_width) / 2" y="(height - title_height) / 2"/>
 </draw_ops>
-
 
 <!-- Set up draw_ops for drawing the actual title. These could be more involved,
        but right now we just include the draw_ops we just defined for drawing the 
@@ -293,14 +292,14 @@
   <include name="title_text_focused"/>
 </draw_ops>
 
-<!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
-<!--   Define how to use the draw_ops to draw the window frames.                                         -->
-<!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<!--   Define how to use the draw_ops to draw the window frames.  -->
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 
 <!-- First we set up normal, focused windows. They use the normal window
        geometry. -->
 <frame_style name="normal_focused" geometry="normal">
-  <piece position="entire_background" draw_ops="curved-background"/>
+  <piece position="entire_background" draw_ops="full_background"/>
   <piece position="title" draw_ops="title_focused"/>
   <piece position="overlay" draw_ops="title_highlight"/>
   <piece position="titlebar" draw_ops="image_highlights"/>
@@ -323,7 +322,7 @@
 
 <!-- This sets up background (unfocused) windows. They are basically the same as the focused windows -->
 <frame_style name="normal_unfocused" geometry="normal" parent="normal_focused">
-  <piece position="entire_background" draw_ops="curved-background_unfocused"/>
+  <piece position="entire_background" draw_ops="full_background_unfocused"/>
   <piece position="title" draw_ops="title_normal"/>
   <piece position="titlebar" draw_ops="image_highlights_unfocused"/>
   
