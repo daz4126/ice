@@ -259,11 +259,16 @@
   <include name="corner_borders_unfocused"/>
 </draw_ops>
 
-<!-- Now we set up draw_ops for drawing the title text in different window types -->
+<!-- The next 2 draw ops draw the title text in different window types -->
 <draw_ops name="title_text_focused">
   <clip x="0" y="0" width="width" height="height"/>
+<!-- This draws a subtle shadow under the text -->
+  <title color="#79ddec"
+         x="(width - title_width) / 2" y="(height - title_height) / 2"/>
+<!-- This is the actual text colour -->
   <title color="#1F4E86"
-         x="(width - title_width) / 2" y="(height - title_height) / 2"/> 
+         x="(width - title_width) / 2" y="(height - title_height) / 2 - 1"/>
+
 </draw_ops>
 
 <draw_ops name="title_text">
