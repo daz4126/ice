@@ -78,7 +78,7 @@
 </draw_ops>
 
 <draw_ops name="menu_button_unfocused">
-  <image filename="buttons.menu.unfocused.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="buttons.menu.png" x="0" y="0" width="object_width" height="object_height" alpha="0.5"/>
 </draw_ops>
 
 <draw_ops name="menu_button_prelight">
@@ -95,7 +95,7 @@
 </draw_ops>
 
 <draw_ops name="minimize_button_unfocused">
-  <image filename="buttons.minimize.unfocused.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="buttons.minimize.png" x="0" y="0" width="object_width" height="object_height" alpha="0.5"/>
 </draw_ops>
 
 <draw_ops name="minimize_button_prelight">
@@ -112,7 +112,7 @@
 </draw_ops>
 
 <draw_ops name="maximize_button_unfocused">
-  <image filename="buttons.maximize.unfocused.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="buttons.maximize.png" x="0" y="0" width="object_width" height="object_height" alpha="0.5"/>
 </draw_ops>
 
 
@@ -130,7 +130,7 @@
 </draw_ops>
 
 <draw_ops name="restore_button_unfocused">
-  <image filename="buttons.restore.unfocused.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="buttons.restore.png" x="0" y="0" width="object_width" height="object_height" alpha="0.5"/>
 </draw_ops>
 
 <draw_ops name="restore_button_prelight">
@@ -147,7 +147,7 @@
 </draw_ops>
 
 <draw_ops name="close_button_unfocused">
-  <image filename="buttons.close.unfocused.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="buttons.close.png" x="0" y="0" width="object_width" height="object_height" alpha="0.5"/>
 </draw_ops>
 
 <draw_ops name="close_button_prelight">
@@ -170,36 +170,36 @@
 
 <!-- This is a transparent highlight that goes in the top half of the title bar -->
 <draw_ops name="title_highlight">
-	<tint color="#fefefe" alpha="0.25" x="1" y="1" width="width-2" height="top_height/2"/>
+	<tint color="#fefefe" alpha="0.5" x="1" y="1" width="width-2" height="top_height/4"/>
 </draw_ops>
 
 <draw_ops name="image_highlights">
 <!-- This is an image that creates a curved 'notch' in the background of the titlebar -->
-	<image filename="notch.png" x="0" y="top_height/3" width="width" height="top_height/1.5" alpha="0.2"/>
+	<image filename="notch.png" x="1" y="top_height/4" width="width-2" height="top_height/1.3" alpha="0.2"/>
 <!-- This is an image that puts a 'cloud' effect behind the title text to highlight it -->
-	<image filename="cloud.png" x="(width-title_width)/2-width/20" y="top_height/4" width="(title_width+width/20)*(title_width/title_width)" height="top_height/2" alpha="0.75" colorize="#ff0000"/>
+	<image filename="cloud.png" x="(width-title_width)/2-width/20" y="top_height/4" width="(title_width+width/20)*(title_width/title_width)" height="top_height/2" alpha="0.75"/>
 </draw_ops>
 
 <!-- These images are the same as above, but a little more transparent for unfocused windows -->
 <draw_ops name="image_highlights_unfocused">
-	<image filename="notch.png" x="0" y="top_height/3" width="width" height="top_height/1.5" alpha="0.2"/>
-	<image filename="cloud.png" x="(width-title_width)/2-width/20" y="top_height/4" width="(title_width+width/20)*(title_width/title_width)" height="top_height/2" alpha="0.5" colorize="#ff0000"/>
+	<image filename="notch.png" x="1" y="top_height/4" width="width-1" height="top_height/1.5" alpha="0.2"/>
+	<image filename="cloud.png" x="(width-title_width)/2-width/20" y="top_height/4" width="(title_width+width/20)*(title_width/title_width)" height="top_height/2" alpha="0.5"/>
 </draw_ops>
 
 <!-- This is a basic way of creating rounded borders and highlights in the corners -->
 <draw_ops name="corner_borders">
 	<!-- top left border-->
-	<line color="#abdeed" x1="1" y1="3" x2="1" y2="4"/>
- 	<line color="#abdeed" x1="2" y1="2" x2="2" y2="2"/>
-	<line color="#abdeed" x1="3" y1="1" x2="4" y2="1"/>
+	<line color="#a8e8fb" x1="1" y1="3" x2="1" y2="4"/>
+ 	<line color="#a8e8fb" x1="2" y1="2" x2="2" y2="2"/>
+	<line color="#a8e8fb" x1="3" y1="1" x2="4" y2="1"/>
 	<!-- top left highlight-->
 	<line color="#d4f2fb" x1="2" y1="4" x2="2" y2="5"/>
  	<line color="#d4f2fb" x1="3" y1="3" x2="3" y2="3"/>
 	<line color="#d4f2fb" x1="4" y1="2" x2="5" y2="2"/>
 	<!-- top right border-->
-	<line color="#abdeed" x1="width-2" y1="3" x2="width-2" y2="4"/>
-	<line color="#abdeed" x1="width-3" y1="2" x2="width-3" y2="2"/>
-	<line color="#abdeed" x1="width-4" y1="1" x2="width-5" y2="1"/>
+	<line color="#a8e8fb" x1="width-2" y1="3" x2="width-2" y2="4"/>
+	<line color="#a8e8fb" x1="width-3" y1="2" x2="width-3" y2="2"/>
+	<line color="#a8e8fb" x1="width-4" y1="1" x2="width-5" y2="1"/>
 	<!-- top right highlight-->
 	<line color="#d4f2fb" x1="width-3" y1="4" x2="width-3" y2="5"/>
 	<line color="#d4f2fb" x1="width-4" y1="3" x2="width-4" y2="3"/>
@@ -225,13 +225,11 @@
   <rectangle color="#E8F4FF" x="0" y="0" width="width" height="height" filled="true"/>
 <!-- This draws a gradient background on the titlebar -->
   <gradient type="vertical" x="0" y="0" width="width" height="top_height">
-    <color value="#cde5fb"/>
-	  <color value="#fefefe"/>
+	  <color value="#eaf2fa"/>
+	  <color value="gtk:bg[normal]"/>
   </gradient>
 <!-- This makes a border around the whole window-->
-  <rectangle color="#abdeed" x="0" y="0" width="width-1" height="height-1" filled="false"/> 
-<!-- This draws a line separating titlebar and content -->
-  <line color="#87cade" x1="1" y1="24" x2="width-1" y2="24"/>
+  <rectangle color="#a8e8fb" x="0" y="0" width="width-1" height="height-1" filled="false"/> 
 </draw_ops>
 
 <!-- Similar to above, but with different colours for unfocused windows -->
