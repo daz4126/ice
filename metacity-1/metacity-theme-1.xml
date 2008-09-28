@@ -241,9 +241,7 @@
 	  <color value="#fefefe"/>
   </gradient>
 <!-- This makes a border around the whole window-->
-  <rectangle color="#d1ecf4" x="0" y="0" width="width-1" height="height-1" filled="false"/>   
-<!-- This draws a line separating titlebar and content -->
-  <line color="#ade3f1" x1="1" y1="24" x2="width-1" y2="24"/>      
+  <rectangle color="#d1ecf4" x="0" y="0" width="width-1" height="height-1" filled="false"/>        
 </draw_ops>
 
 <!-- The next two draw ops just group a lot of the previous operations together -->
